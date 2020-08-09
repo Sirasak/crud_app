@@ -1,0 +1,127 @@
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+    padding: 20px;
+    border: solid;
+    max-width: 860px;
+}
+
+.form-fullname-container {
+    display: flex;
+    flex-basis: 100%;
+    text-align: left;
+    background-color: #ccc;
+    padding: 10px;
+}
+
+.form-input-title {
+    background-color: #ccc;
+    margin: 10px;
+}
+
+.form-input-firstname {
+    width: 200px;
+    background-color: #ccc;
+    margin: 10px;
+}
+
+.form-input-lastname {
+    width: 200px;
+    background-color: #ccc;
+    margin: 10px;
+}
+
+.form-input-birthday {
+    flex-basis: 100%;
+    text-align: left;
+    background-color: #ccc;
+    padding: 10px;
+}
+
+.form-input-nationality {
+    flex-basis: 100%;
+    text-align: left;
+    background-color: #ccc;
+    padding: 10px;
+}
+
+.form-citizen-container {
+    flex-basis: 100%;
+    text-align: left;
+    background-color: #ccc;
+    padding: 10px;
+}
+
+.form-input-citizen-1 {
+    width: 20px;
+    background-color: #ccc;
+    margin: 10px 2px;
+}
+
+.form-input-citizen-2 {
+    width: 60px;
+    background-color: #ccc;
+    margin: 10px 2px;
+}
+
+.form-input-citizen-3 {
+    width: 60px;
+    background-color: #ccc;
+    margin: 10px 2px;
+}
+
+.form-input-citizen-4 {
+    width: 20px;
+    background-color: #ccc;
+    margin: 10px 2px;
+}
+
+.form-input-citizen-5 {
+    width: 40px;
+    background-color: #ccc;
+    margin: 10px 2px;
+}
+
+.form-gender-container {
+    flex-basis: 100%;
+    text-align: left;
+    background-color: #ccc;
+    padding: 10px;
+}
+
+.form-input-gender {
+    background-color: #ccc;
+    margin: 10px;
+}
+
+.form-input-mobile {
+    flex-basis: 100%;
+    text-align: left;
+    background-color: #ccc;
+    padding: 10px;
+}
+
+.form-input-passport {
+    flex-basis: 100%;
+    text-align: left;
+    background-color: #ccc;
+    padding: 10px;
+}
+
+.form-input-salary {
+    flex-basis: 100%;
+    text-align: left;
+    background-color: #ccc;
+    padding: 10px;
+}
+.form-submit-button-wrap {
+    flex-basis: 100%;
+    text-align: left;
+    background-color: #ccc;
+    padding: 10px;
+}
+
+.form-submit-button {
+    background-color: #ccc;
+}
