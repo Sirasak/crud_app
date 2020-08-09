@@ -1,0 +1,44 @@
+.table-container {
+    margin: 20px;
+    padding: 20px;
+    border: solid;
+    max-width: 860px;
+}
+
+#userTable {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#userTable th{
+    padding: 10px;
+    text-align: left;
+    background-color: #ccc;
+}
+
+#userTable td{
+    padding: 10px;
+    text-align: left;
+}
+
+.column-checkbox {
+    width: 50%;
+    padding: 25px;
+    text-align: left;
+}
+
+.column-pagination {
+    width: 50%;
+    padding: 10px;
+    float: right;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+ul {
+    list-style-type: none;
+}
