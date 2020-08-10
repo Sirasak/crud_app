@@ -9,27 +9,53 @@ const UserTable = () => {
 
     const [currentPage, setCurrentPage] = useState(1);
     const [usersPerPage] = useState(5);
-
     const indexOfLastUser = currentPage * usersPerPage;
-    const indexofFirstUser = indexOfLastUser - usersPerPage;
-    const currentUsers = users.slice(indexofFirstUser, indexOfLastUser)
+    const indexOfFirstUser = indexOfLastUser - usersPerPage;
+    const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser)
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+    const [selectedUsers, setSelectedUsers] = useState();
+
+    console.log(currentUsers);
 
     const dispatch = useDispatch();
 
-    const handleDelete = (users) => {
-        dispatch({ type: 'DELETE', payload: users.name})
+    const handleEdit = (user) => {
+        dispatch({ type: 'EDIT', payload: user})
     };
 
-    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+    const handleDelete = (user) => {
+        dispatch({ type: 'DELETE', payload: user})
+    };
+
+    const handleCheckboxSelect = (user) => {
+        const selectedUser = {
+            select: true,
+            ...user
+        }
+        // users[user] = selectedUser
+        // console.log(selectedUsersList)
+        console.log(users)
+        console.log(selectedUser)
+    };
+
+    const handleDeleteCheckbox = () => {
+        // dispatch({ type: 'DELETE_CHECKBOX', payload: selectedUser})
+        console.log("DELETEEEEEEE")
+    }
 
     console.log(users);
-    // console.log(usersState.[1].name);
 
     return(
         <div className="table-container">
             <div className="row">
                 <div className="column-checkbox">
                     <input type="checkbox" />
+                    <button
+                    onClick={handleDeleteCheckbox}
+                    >
+                    DELETE
+                    </button>
                 </div>
                 <div className="column-pagination">
                     <Pagination usersPerPage={usersPerPage} totalUsers={users.length} paginate={paginate} />
@@ -61,23 +87,29 @@ const UserTable = () => {
                     currentUsers.map((user) => (
                         <tr key={user.id}>
                             <td >
-                                <input type="checkbox" />            
+                                <input 
+                                    type="checkbox"
+                                    onClick={() => handleCheckboxSelect(user)}
+                                />            
                             </td>                      
                             <td>{user.firstname} {user.lastname}</td>
                             <td>{user.gender}</td>
                             <td>{user.mobile}</td>
                             <td>{user.nationality}</td>
                             <td>
-                                <button>Edit</button>
+                                <button
+                                    onClick={() => handleEdit(user)}
+                                >
+                                    Edit
+                                </button>
                             </td>
                             <td>
                                 <button 
-                                    onClick={handleDelete}
+                                    onClick={() => handleDelete(user)}
                                 >
                                     Delete
                                 </button>
                             </td>
-
                         </tr>
                     ))
                 ) : (

@@ -1,40 +1,23 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
-import { getFromLocalStorage } from './localStorage';
+import { useDispatch, useSelector } from 'react-redux';
 import './FormSubmit.css';
 
 const FormSubmit = () => {
     const { register, handleSubmit, errors } = useForm();
     const dispatch = useDispatch();
+    const usersState = useSelector(state => state);
     
     const onSubmit = users => {
-        // const userWithId = {
-        //     id: Math.random(),
-        //     users
-        // }
+        const userWithId = {
+            id: Math.random(),
+            ...users
+        }
 
-        const storage = getFromLocalStorage();
-        const newStorage = storage.map((d) => {
-            return {
-                "select": false,
-                "id": Math.random(),
-                title: d.title,
-                firstname: d.firstname,
-                lastname: d.lastname,
-                birthday: d.birthday,
-                nationality: d.nationality,
-                citizen: d.citizen,
-                gender: d.gender,
-                mobile: d.mobile
-            }
-        })
-        
-        console.log(typeof newStorage);
+        console.log(usersState);
         console.log(users);
-        console.log(newStorage);
 
-        dispatch({type: 'SUBMIT', payload: users})
+        dispatch({type: 'SUBMIT', payload: userWithId})
     }
 
     console.log(errors);
@@ -98,36 +81,36 @@ const FormSubmit = () => {
             </div>
             <div className="form-citizen-container">
                 <label>Citizen ID:</label>
-                <input 
-                        type="number"
-                        className="form-input-citizen-1" 
-                        name="citizen1" 
-                        ref={register({required: true})}
-                        />-
-                <input 
-                        type="number"  
-                        className="form-input-citizen-2"
-                        name="citizen2" 
-                        ref={register({required: true})} 
-                        />- 
-                <input 
-                        type="number"
-                        className="form-input-citizen-3" 
-                        name="citizen3" 
-                        ref={register({required: true})} 
-                        />- 
-                <input 
-                        type="number"
-                        className="form-input-citizen-4"
-                        name="citizen4" 
-                        ref={register({required: true})} 
-                        />- 
-                <input 
-                        type="number"
-                        className="form-input-citizen-5"
-                        name="citizen5" 
-                        ref={register({required: true})} 
-                        />                                                                                                
+                <input
+                    type="text"
+                    className="form-input-citizen-1" 
+                    name="citizen1" 
+                    ref={register({required: true})} 
+                />-
+                <input
+                    type="text"
+                    className="form-input-citizen-2" 
+                    name="citizen2" 
+                    ref={register({required: true})} 
+                />-
+                <input
+                    type="text"
+                    className="form-input-citizen-3" 
+                    name="citizen3" 
+                    ref={register({required: true})} 
+                />-
+                <input
+                    type="text"
+                    className="form-input-citizen-4" 
+                    name="citizen4" 
+                    ref={register({required: true})} 
+                />-
+                <input
+                    type="text"
+                    className="form-input-citizen-5" 
+                    name="citizen5" 
+                    ref={register({required: true})} 
+                />                                                   
             </div>
             <div className="form-gender-container">
                 <label>Gender:</label>
@@ -149,12 +132,12 @@ const FormSubmit = () => {
                 <input 
                     name="gender" 
                     type="radio" 
-                    value="Female" 
+                    value="Unisex" 
                     ref={register({ required: true })}
                     />
                     Unisex
             </div>
-            <div                     className="form-input-mobile">
+            <div className="form-input-mobile">
                 <label>Mobile Phone:</label>
                 <input 
                     type="tel"
@@ -172,7 +155,7 @@ const FormSubmit = () => {
                     ref={register({required: true, minLength: 6, maxLength: 12})} 
                     />
             </div>
-            <div                     className="form-input-salary">
+            <div className="form-input-salary">
                 <label>Expected Salary:</label>
                 <input 
                     type="text"
